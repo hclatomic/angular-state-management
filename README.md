@@ -1,5 +1,11 @@
 # AngularStateManagement
 
+## Presentation
+
+This project proposes a demo app that demonstrates how to deal with the state of an Angular application.
+
+## Angular Project
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
 
 ## Development server

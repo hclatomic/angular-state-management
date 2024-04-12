@@ -1,16 +1,14 @@
 
-
-    <div class="main">
-        <app-header></app-header>
-        <router-outlet />
-        @if(!store.currentStateIsLastState) {
-            <div class="opacitor">
-                <div class="comment">Immutable</div>
-            </div>
-        }
-
-    </div>
-    <div class="control">
-        <h3 class="txt-center">App State</h3>
-        <app-control [state]="store.appState"></app-control>
-    </div>
+<div class="main">
+    <app-header></app-header>
+    <router-outlet />
+    @if(!store.currentStateIsLastState) {
+        <div class="opacitor">
+            <div class="comment">Immutable</div>
+        </div>
+    }
+</div>
+<div class="control">
+    <h3 class="txt-center">App State</h3>
+    <app-control [state]="store.appState"></app-control>
+</div>

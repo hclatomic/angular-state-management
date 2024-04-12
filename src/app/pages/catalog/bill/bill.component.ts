@@ -21,16 +21,24 @@ export class BillComponent {
     public store: StoreService,
     public cats: CatalogService
   ) {
-    this.store.appState.ctx.orderClosed = false;
+    this.store.appState.ctx.orderClosed = this.store.appState.ctx.orderClosed || false;
   }
 
   confirm() {
+
+    // You should here call a server to validate the order.
+
     this.store.appState.user.orders.push({
       date: new Date().toDateString(),
       order: JSON.parse(JSON.stringify(this.store.appState.cart))
     });
     this.store.appState.cart = [];
     this.cats.updateCart();
+    this.store.appState.ctx.orderClosed = true;
+  }
+
+  close() {
+    this.cats.cancelCart();
     this.store.appState.ctx.orderClosed = true;
   }
 

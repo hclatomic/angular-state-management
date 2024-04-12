@@ -10,13 +10,10 @@
     right: 0;
     width: fit-content;
     height: fit-content;
-    margin: auto;
+    margin: headeruto;
     border: 1px solid #ccc;
     border-radius: 1em;
     padding: 0.5em;
-}
-.txt-center {
-    text-align: center
 }
 .spacer {
     padding: 0.25em;
@@ -26,8 +23,11 @@
     width: 120px
 }
 input {
-    padding: 0.5em;
+    padding:header 0.5em;
 }
 input.street {
     width: 400px;
+}
+td {
+    padding: 0!important;
 }

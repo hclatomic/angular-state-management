@@ -9,7 +9,6 @@ export const routes: Routes = [
     {
         path: '',
         component: LoginComponent
-        //loadChildren: () => import('./pages/catalog/catalog.module').then(m => m.CatalogModule)
     },
     {
         path: 'catalog',

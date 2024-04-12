@@ -1,5 +1,6 @@
 // Angular
 import { Component, Input, DoCheck } from '@angular/core';
+import { Router } from '@angular/router';
 // PrimeNg
 import { ButtonModule } from 'primeng/button';
 // app
@@ -23,21 +24,22 @@ export class ControlComponent implements DoCheck {
 
   constructor(
     public store: StoreService,
-    public cats: CatalogService
+    public cats: CatalogService,
+    private router: Router
   ) { }
 
   ngDoCheck(): void {
-
     const N = this.store.history.length - 1;
     this.displayState = JSON.stringify(this.store.appState, null, 2);
     const last = JSON.stringify(this.store.history[N], null, 2);
 
     if (this.displayState !== last && this.store.currentStateIsLastState) {
+      // You better backup the state history on a server, but here
+      // we just feed a session object for the present demo
       this.store.history.push(JSON.parse(this.displayState));
       this.currentStateIndex = this.store.history.length - 1;
-
+      this.store.appState.ctx.url = this.router.url;
     }
-
   }
 
   back() {
@@ -48,6 +50,9 @@ export class ControlComponent implements DoCheck {
     }
     else {
       this.currentStateIndex = 0;
+    }
+    if (this.store.appState.ctx.url) {
+      this.router.navigate([this.store.appState.ctx.url]);
     }
   }
 
@@ -65,7 +70,9 @@ export class ControlComponent implements DoCheck {
       this.currentStateIndex = N;
       this.store.currentStateIsLastState = true;
     }
+    if (this.store.appState.ctx.url) {
+      this.router.navigate([this.store.appState.ctx.url]);
+    }
   }
-
 
 }

@@ -1,6 +1,5 @@
-
 @if(!store.appState.ctx.goBuy && store.appState.cart.length) {
-    <p-table [value]="store.appState.cart" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table responsiveLayout="stack" [value]="store.appState.cart" [tableStyle]="{ }">
         <ng-template pTemplate="header">
             <tr>
                 <th>Label</th>

@@ -1,35 +1,33 @@
-
 <h3 class="txt-center">Welcome</h3>
 <p class="txt-center">Please login</p>
 <div class="container">
-<p-inputGroup>
-    <p-inputGroupAddon>
-        username
-    </p-inputGroupAddon>
-    <input type="text" pInputText [(ngModel)]="username" />
-</p-inputGroup>
-<div class="spacer"></div>
-<p-inputGroup>
-    <p-inputGroupAddon>
-        password
-    </p-inputGroupAddon>
-    <input type="password" pInputText [(ngModel)]="password" />
-</p-inputGroup>
-<p class="txt-center">
-    <p-button label="Login" (click)="login()"></p-button>
-</p>
-<ng-container *ngIf="error">
-    <p-messages severity="error">
+    <p-inputGroup>
+        <p-inputGroupAddon>
+            username
+        </p-inputGroupAddon>
+        <input type="text" pInputText [(ngModel)]="username" />
+    </p-inputGroup>
+    <div class="spacer"></div>
+    <p-inputGroup>
+        <p-inputGroupAddon>
+            password
+        </p-inputGroupAddon>
+        <input type="password" pInputText [(ngModel)]="password" />
+    </p-inputGroup>
+    <p class="txt-center">
+        <p-button label="Login" (click)="login()"></p-button>
+    </p>
+    <ng-container *ngIf="error">
+        <p-messages severity="error">
+            <ng-template pTemplate>
+                <div class="ml-2">You must enter a username</div>
+            </ng-template>
+        </p-messages>
+    </ng-container>
+    <p-messages severity="info">
         <ng-template pTemplate>
-            <div class="ml-2">You must enter a username</div>
+            <div class="ml-2">Enter at least a username</div>
         </ng-template>
     </p-messages>
-</ng-container>
-<p-messages severity="info">
-    <ng-template pTemplate>
-        <div class="ml-2">Enter at least a username</div>
-    </ng-template>
-</p-messages>
-
 </div>
 

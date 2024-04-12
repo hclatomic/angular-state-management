@@ -34,7 +34,7 @@ export class CartComponent {
     public store: StoreService,
     public cats: CatalogService
   ) {
-    this.store.appState.ctx.goBuy = false;
+    this.store.appState.ctx.goBuy = this.store.appState.ctx.goBuy || false;
   }
 
   buyNow() {

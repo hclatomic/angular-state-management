@@ -20,7 +20,7 @@ export class ApiService {
     //return this.http.post('https://myserver/...', {username: usernale, password: password});
 
     // Instead we mock the behavior of a server returning
-    // an observable after a 500ms delay:
+    // an observable after a 500ms delay to make it asynchronous:
     return of(
       {
         identified: true,
@@ -38,7 +38,11 @@ export class ApiService {
   }
 
   getCatalog() {
+    //Stackblitz denies calls to a server that should be run this way:
+    //return this.http.post('https://myserver/...', {...});
 
+    // Instead we mock the behavior of a server returning
+    // an observable after a 500ms delay to make it asynchronous:
     return of([
       { "id": 1, "label": "justo morbi ut odio cras", "description": "convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in", "price": 1423.99 },
       { "id": 2, "label": "tortor duis mattis egestas", "description": "mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum", "price": 100 },
