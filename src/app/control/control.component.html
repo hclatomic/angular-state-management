@@ -1,0 +1,8 @@
+<div style="text-align:center">
+    <p-button icon="pi pi-step-backward" label="back" (click)="back()"
+    [disabled]="currentStateIndex ===0 ? true:false"></p-button>
+    &nbsp;&nbsp;
+    <p-button icon="pi pi-step-forward" label="forward" (click)="forward()"
+    [disabled]="currentStateIsLastState ? true:false"></p-button>
+</div>
+<pre [innerHTML]="displayState"></pre>

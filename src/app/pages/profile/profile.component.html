@@ -1,0 +1,41 @@
+
+<h3 class="txt-center">Your profile</h3>
+<div class="container">
+    <p-inputGroup>
+        <p-inputGroupAddon class="label">
+            FirstName
+        </p-inputGroupAddon>
+        <input type="text" pInputText [(ngModel)]="store.appState.user.firstname" />
+    </p-inputGroup>
+    <div class="spacer"></div>
+    <p-inputGroup>
+        <p-inputGroupAddon class="label">
+            LastName
+        </p-inputGroupAddon>
+        <input type="text" pInputText [(ngModel)]="store.appState.user.lastname" />
+    </p-inputGroup>
+    <div class="spacer"></div>
+    <p-inputGroup>
+        <p-inputGroupAddon class="label">
+            Age
+        </p-inputGroupAddon>
+        <input type="number" pInputText [(ngModel)]="store.appState.user.age" />
+    </p-inputGroup>
+    <div class="spacer"></div>
+    <p-inputGroup>
+        <p-inputGroupAddon class="label">
+            Street
+        </p-inputGroupAddon>
+        <input type="text" pInputText [(ngModel)]="store.appState.user.address.street" class="street"/>
+    </p-inputGroup>
+    <div class="spacer"></div>
+    <p-inputGroup>
+        <p-inputGroupAddon class="label">
+            City
+        </p-inputGroupAddon>
+        <input type="text" pInputText [(ngModel)]="store.appState.user.address.city" />
+    </p-inputGroup>
+    <div class="spacer"></div>
+
+
+</div>

@@ -1,0 +1,33 @@
+.total-price {
+    text-align: right;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.container {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    padding: 0.5em;
+}
+.txt-center {
+    text-align: center
+}
+.spacer {
+    padding: 0.25em;
+}
+
+.label {
+    width: 120px
+}
+input {
+    padding: 0.5em;
+}
+input.street {
+    width: 400px;
+}

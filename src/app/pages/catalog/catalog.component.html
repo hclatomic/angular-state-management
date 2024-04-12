@@ -1,0 +1,53 @@
+<p-dialog
+    header="Your shopping cart"
+    [(visible)]="store.appState.ctx.openCheckout"
+    [modal]="true"
+    [style]="{ width: 'fit-content', 'margin-right': '30%' }"
+    [draggable]="false"
+    [resizable]="false"
+    (onHide)="cats.cancelCart()" >
+        <app-cart></app-cart>
+</p-dialog>
+
+<div class="header">
+    @if(!store.appState.cart.length){
+        <p-button (click)="checkOut()">
+            <span><b>Your cart is empty</b></span>&nbsp;
+            <i class="pi pi-shopping-cart mr-4 p-text-white" pBadge style="font-size: 2rem" [value]="store.appState.ctx.numberOfCartItems"></i>
+        </p-button>
+    }
+    @else {
+        <p-button (click)="checkOut()">
+            <span><b>Checkout</b></span>&nbsp;
+            <i class="pi pi-shopping-cart mr-4 p-text-white" pBadge style="font-size: 2rem" [value]="store.appState.ctx.numberOfCartItems"></i>
+        </p-button>
+
+    }
+</div>
+
+<p-table [value]="store.appState.catalog" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Buy</th>
+            <th>Label</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>
+                <p-button
+                    icon="pi pi-plus"
+                    [rounded]="true"
+                    [text]="true"
+                    severity="true"
+                    (click)="cats.addToCart(product)"
+                ></p-button>
+            </td>
+            <td><b>{{ product.label }}</b></td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.description }}</td>
+        </tr>
+    </ng-template>
+</p-table>

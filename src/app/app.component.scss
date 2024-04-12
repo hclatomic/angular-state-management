@@ -1,0 +1,21 @@
+.main {
+    display: inline-block;
+    width: 70%;
+    //border: 3px solid #888;
+    vertical-align: top;
+}
+.control {
+    display: inline-block;
+    width: 25%;
+    border: 3px solid #c00;
+    background: #fee;
+    vertical-align: top;
+    padding: 0.5em;
+    position:absolute;
+    top:0;
+    right:-8px;
+    z-index: 2000;
+}
+.txt-center {
+    text-align: center
+}
