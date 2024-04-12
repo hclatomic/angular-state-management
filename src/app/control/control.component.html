@@ -3,6 +3,6 @@
     [disabled]="currentStateIndex ===0 ? true:false"></p-button>
     &nbsp;&nbsp;
     <p-button icon="pi pi-step-forward" label="forward" (click)="forward()"
-    [disabled]="currentStateIsLastState ? true:false"></p-button>
+    [disabled]="store.currentStateIsLastState ? true:false"></p-button>
 </div>
 <pre [innerHTML]="displayState"></pre>

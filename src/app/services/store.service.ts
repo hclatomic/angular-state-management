@@ -12,5 +12,10 @@ export class StoreService {
 
   history: AppState[] = [];
 
+  // To control if a new state can be added
+  // to the history, or if it is immutable
+  // that cannot be modified
+  currentStateIsLastState = true;
+
   constructor() { }
 }

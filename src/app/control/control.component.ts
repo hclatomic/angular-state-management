@@ -20,7 +20,6 @@ export class ControlComponent implements DoCheck {
 
   displayState: string = '';
   currentStateIndex = 0;
-  currentStateIsLastState = true;
 
   constructor(
     public store: StoreService,
@@ -28,19 +27,24 @@ export class ControlComponent implements DoCheck {
   ) { }
 
   ngDoCheck(): void {
+
+    const N = this.store.history.length - 1;
     this.displayState = JSON.stringify(this.store.appState, null, 2);
-    const last = JSON.stringify(this.store.history[this.store.history.length - 1], null, 2);
-    if (this.displayState !== last && this.currentStateIsLastState) {
+    const last = JSON.stringify(this.store.history[N], null, 2);
+
+    if (this.displayState !== last && this.store.currentStateIsLastState) {
       this.store.history.push(JSON.parse(this.displayState));
       this.currentStateIndex = this.store.history.length - 1;
+
     }
+
   }
 
   back() {
-    this.currentStateIsLastState = false;
+    this.store.currentStateIsLastState = false;
     this.currentStateIndex--;
     if (this.currentStateIndex >= 0) {
-      this.store.appState = this.store.history[this.currentStateIndex];
+      this.store.appState = JSON.parse(JSON.stringify(this.store.history[this.currentStateIndex]));
     }
     else {
       this.currentStateIndex = 0;
@@ -51,14 +55,15 @@ export class ControlComponent implements DoCheck {
     this.currentStateIndex++;
     const N = this.store.history.length - 1;
     if (this.currentStateIndex < N) {
-      this.store.appState = this.store.history[this.currentStateIndex];
+      this.store.appState = JSON.parse(JSON.stringify(this.store.history[this.currentStateIndex]));
     }
     else if (this.currentStateIndex === N) {
-      this.currentStateIsLastState = true;
-      this.store.appState = this.store.history[this.currentStateIndex];
+      this.store.currentStateIsLastState = true;
+      this.store.appState = JSON.parse(JSON.stringify(this.store.history[N]));
     }
     else {
       this.currentStateIndex = N;
+      this.store.currentStateIsLastState = true;
     }
   }
 

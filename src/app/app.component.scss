@@ -19,3 +19,21 @@
 .txt-center {
     text-align: center
 }
+.opacitor {
+    position: absolute;
+    z-index: 1500;
+    top: 0;
+    right: 25%;
+    width: 75%;
+    background: rgba(0,0,0,0.2);
+    height: 100%;
+}
+.comment {
+    position: relative;
+    color: white;
+    opacity: 0.5;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 2em;
+}
+
