@@ -24,21 +24,19 @@ export class User {
         };
         this.orders = [];
     }
-
 }
 
 export class ItemCatalog {
     id: number | null;
-    title: string;
+    label: string;
     description: string;
     price: number;
 
     constructor() {
         this.id = null;
-        this.title = '';
+        this.label = '';
         this.description = '';
         this.price = 0;
-
     }
 }
 

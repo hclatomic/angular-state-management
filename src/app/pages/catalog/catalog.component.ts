@@ -6,11 +6,12 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { BadgeModule } from 'primeng/badge';
 import { DialogModule } from 'primeng/dialog';
-import { CartComponent } from './cart/cart.component';
 // app
+import { CartComponent } from './cart/cart.component';
 import { StoreService } from '../../services/store.service';
 import { ApiService } from '../../services/api.service';
 import { CatalogService } from './catalog.service';
+import { ItemCatalog } from '../../classes/app-state.class';
 
 @Component({
   selector: 'app-catalog',
@@ -36,7 +37,7 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit() {
     this.store.appState.ctx.openCheckOut = false;
-    this.api.getCatalog().subscribe((cat: any) => {
+    this.api.getCatalog().subscribe((cat: ItemCatalog[]) => {
       if (!this.store.appState.catalog.length) {
         this.store.appState.catalog = cat;
       }
