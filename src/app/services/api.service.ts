@@ -17,7 +17,7 @@ export class ApiService {
   login(username: string, password: string): Observable<User> {
 
     //Stackblitz denies calls to a server that should be run this way:
-    //return this.http.post('https://myserver/...', {username: usernale, password: password});
+    //return this.http.post('https://myserver/...', {user: username, pass: password});
 
     // Instead we mock the behavior of a server returning
     // an observable after a 500ms delay to make it asynchronous:
