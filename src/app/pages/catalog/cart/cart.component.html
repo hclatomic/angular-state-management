@@ -1,4 +1,13 @@
-@if(!store.appState.ctx.goBuy && store.appState.cart.length) {
+@if (
+    !store.appState.cart.length &&
+    !this.store.appState.ctx.buyCompleted
+) {
+    Your cart is empty.
+}
+@else if(
+    store.appState.cart.length &&
+    !store.appState.ctx.buyInProgress
+) {
     <p-table responsiveLayout="stack" [value]="store.appState.cart" [tableStyle]="{ }">
         <ng-template pTemplate="header">
             <tr>
@@ -27,7 +36,11 @@
         <p-button [rounded]="true" (click)="buyNow()">Buy now !</p-button>
     </div>
 }
-@else if (store.appState.ctx.goBuy && (!store.appState.user.address.street || !store.appState.user.address.city)) {
+@else if (
+    store.appState.cart.length &&
+    store.appState.ctx.buyInProgress &&
+    (!store.appState.user.address.street || !store.appState.user.address.city)
+) {
     <div>Your address is incomplete, please complete it below : </div>
     <div class="container">
         <p-inputGroup>
@@ -49,9 +62,7 @@
         </div>
         </div>
 }
-@else if(store.appState.ctx.goBuy) {
+@else if(store.appState.ctx.buyInProgress) {
     <app-bill></app-bill>
 }
-@else {
-    Your cart is empty.
-}
+

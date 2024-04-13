@@ -35,7 +35,7 @@ export class CatalogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.store.appState.ctx.openCheckout = false;
+    this.store.appState.ctx.openCheckOut = false;
     this.api.getCatalog().subscribe((cat: any) => {
       if (!this.store.appState.catalog.length) {
         this.store.appState.catalog = cat;
@@ -44,7 +44,7 @@ export class CatalogComponent implements OnInit {
   }
 
   checkOut() {
-    this.store.appState.ctx.openCheckout = true;
+    this.store.appState.ctx.openCheckOut = true;
   }
 
 

@@ -62,17 +62,35 @@ export class Order {
     }
 }
 
+export class Ctx { //contextual variables
+    openCheckOut: boolean;
+    buyInProgress: boolean;
+    buyCompleted: boolean;
+    numberOfCartItems: string; // surprisingly PrimeNg needs a string, not a number
+    totalCartPrice: number;
+    url: string;
+
+    constructor() {
+        this.openCheckOut = false;
+        this.buyInProgress = false;
+        this.buyCompleted = false;
+        this.numberOfCartItems = '0';
+        this.totalCartPrice = 0;
+        this.url = '/';
+    }
+}
+
 export class AppState {
     user: User;
     catalog: ItemCatalog[];
     cart: ItemCart[];
-    ctx: any; // for contextual variables
+    ctx: Ctx;
 
     constructor() {
         this.user = new User();
         this.cart = [];
         this.catalog = [];
-        this.ctx = {};
+        this.ctx = new Ctx();
     }
 }
 

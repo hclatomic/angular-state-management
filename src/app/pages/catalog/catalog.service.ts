@@ -11,9 +11,7 @@ export class CatalogService {
 
   constructor(
     public store: StoreService
-  ) {
-    this.store.appState.ctx.numberOfCartItems = 0;
-  }
+  ) { }
 
   updateCart() {
     let total = 0;
@@ -63,14 +61,10 @@ export class CatalogService {
     this.updateCart();
   }
 
-  emptyCart() {
-    this.store.appState.cart = [];
-    this.updateCart();
-  }
-
   cancelCart() {
-    this.store.appState.ctx.openCheckout = false;
-    this.store.appState.ctx.goBuy = false;
+    this.store.appState.ctx.openCheckOut = false;
+    this.store.appState.ctx.buyInProgress = false;
+    this.store.appState.ctx.buyCompleted = false;
   }
 
 

@@ -7,7 +7,6 @@ import { ButtonModule } from 'primeng/button';
 import { StoreService } from '../../../services/store.service';
 import { CatalogService } from '../catalog.service';
 
-
 @Component({
   selector: 'app-bill',
   standalone: true,
@@ -20,9 +19,7 @@ export class BillComponent {
   constructor(
     public store: StoreService,
     public cats: CatalogService
-  ) {
-    this.store.appState.ctx.orderClosed = this.store.appState.ctx.orderClosed || false;
-  }
+  ) { }
 
   confirm() {
 
@@ -34,12 +31,11 @@ export class BillComponent {
     });
     this.store.appState.cart = [];
     this.cats.updateCart();
-    this.store.appState.ctx.orderClosed = true;
+    this.store.appState.ctx.buyCompleted = true;
   }
 
   close() {
     this.cats.cancelCart();
-    this.store.appState.ctx.orderClosed = true;
   }
 
 

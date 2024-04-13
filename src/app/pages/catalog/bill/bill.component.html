@@ -1,4 +1,4 @@
-@if(!store.appState.ctx.orderClosed) {
+@if(!store.appState.ctx.buyCompleted) {
     <div class="container">
         <table>
             <tr>
@@ -23,7 +23,7 @@
                     <td><b>{{ item.product.label }}</b></td>
                     <td>{{ item.quantity }}</td>
                     <td>
-                        {{(item.quantity * item.product.price)}}
+                        {{(item.quantity * item.product.price).toFixed(2)}}
                     </td>
                 </tr>
             </ng-template>

@@ -33,12 +33,10 @@ export class CartComponent {
   constructor(
     public store: StoreService,
     public cats: CatalogService
-  ) {
-    this.store.appState.ctx.goBuy = this.store.appState.ctx.goBuy || false;
-  }
+  ) { }
 
   buyNow() {
-    this.store.appState.ctx.goBuy = true;
+    this.store.appState.ctx.buyInProgress = true;
     this.street = this.store.appState.user.address.street;
     this.city = this.store.appState.user.address.city;
   }
@@ -46,6 +44,7 @@ export class CartComponent {
   displayBill() {
     this.store.appState.user.address.street = this.street;
     this.store.appState.user.address.city = this.city;
+
   }
 
 
