@@ -1,5 +1,7 @@
 <p-dialog
-    header="Your shopping cart"
+    [header]="
+    store.appState.ctx.buyInProgress && !store.appState.ctx.buyCompleted ? 'Your bill' :
+        store.appState.ctx.buyCompleted ? 'Success' : 'Your shopping cart'"
     [(visible)]="store.appState.ctx.openCheckOut"
     [modal]="true"
     [style]="{ width: '70%', 'margin-right': '25%' }"
