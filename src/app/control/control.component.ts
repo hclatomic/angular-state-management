@@ -38,8 +38,8 @@ export class ControlComponent implements DoCheck {
       // we just feed a session object for the present demo
       this.store.history.push(JSON.parse(this.displayState));
       this.currentStateIndex = this.store.history.length - 1;
-      this.store.appState.ctx.url = this.router.url;
     }
+    this.store.appState.ctx.url = this.router.url;
   }
 
   back() {
